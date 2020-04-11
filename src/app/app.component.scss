@@ -1,0 +1,58 @@
+.ticketTable {
+  border-collapse: collapse;
+}
+
+.ticketTable td,.ticketTable th {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: center;
+}
+
+.housieTable td,.housieTable th {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: center;
+}
+
+.bgyellow {
+  background-color: gold;
+}
+
+// .title {
+//   width: 100%;
+//   background-image: url('../assets/img/app_background.jpg');
+//   min-height: 56vh;
+//   font-weight: 500;
+//   color: #162784;
+//   text-align: center;
+//   font-size: 2rem;
+//   padding-top: 2rem;
+// }
+
+.title {
+  max-width: 48rem;
+}
+
+.title-div {
+  display: flex;
+  width: 100%;
+  background-image: url('../assets/img/app_background.jpg');
+  height: 362px;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  background-repeat-y: no-repeat;
+}
+
+.ticket-inner-div {
+  display: flex;
+  justify-content: center;
+  // margin: 3rem;
+}
+
+.ticketTable {
+  width: 100%;
+  max-width: 30rem;
+  border-style: solid;
+  border-width: thick;
+}
