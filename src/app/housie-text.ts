@@ -89,4 +89,4 @@ export const HOUSIE_TEXT = [
   'Two fat ladies',
   'All but one',
   'Top of the house'
-]
+];
