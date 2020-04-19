@@ -23,13 +23,16 @@
     <div class="ticket-inner-div mh3 mb5" *ngFor="let t of generatedTickets">
       <table class="ticketTable">
         <tr>
-          <td *ngFor="let data of t[0]">{{data == 0? '' : data}}</td>
+          <td *ngFor="let data of t[0]" [ngClass]="{'bgyellow': ticketCalledNumbers.indexOf(data) >= 0}"
+            (click)="stubNumber(data)">{{data == 0? '' : data}}</td>
         </tr>
         <tr>
-          <td *ngFor="let data of t[1]">{{data == 0? '' : data}}</td>
+          <td *ngFor="let data of t[1]" [ngClass]="{'bgyellow': ticketCalledNumbers.indexOf(data) >= 0}"
+            (click)="stubNumber(data)">{{data == 0? '' : data}}</td>
         </tr>
         <tr>
-          <td *ngFor="let data of t[2]">{{data == 0? '' : data}}</td>
+          <td *ngFor="let data of t[2]" [ngClass]="{'bgyellow': ticketCalledNumbers.indexOf(data) >= 0}"
+            (click)="stubNumber(data)">{{data == 0? '' : data}}</td>
         </tr>
       </table>
       <br>

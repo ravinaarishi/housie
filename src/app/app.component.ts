@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   currentNumber;
   currentText;
   calledNumbers = [];
+  ticketCalledNumbers = [];
   tambola;
   oneToEight = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   oneToNine = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit {
 
     public genrateTickets() {
       this.showHousieBoard = false;
+      this.ticketCalledNumbers = [];
       const num = +this.ticketInput.value;
       this.generatedTickets = this.tambola.getTickets(num);
       this.showTickets = true;
@@ -65,6 +67,12 @@ export class AppComponent implements OnInit {
       }
     }
 
+    public stubNumber(num) {
+      if (num !== 0 && this.ticketCalledNumbers.indexOf(num) < 0) {
+        this.ticketCalledNumbers.push(num);
+      }
+    }
+
     public reset() {
       this.currentNumber = null;
       this.currentText = null;
@@ -72,6 +80,7 @@ export class AppComponent implements OnInit {
       this.showHousieBoard = false;
       this.showGameOver = false;
       this.calledNumbers = [];
+      this.ticketCalledNumbers = [];
       this.generatedNumbers = null;
       this.ticketInput = new FormControl('');
     }
