@@ -68,8 +68,13 @@ export class AppComponent implements OnInit {
     }
 
     public stubNumber(num) {
-      if (num !== 0 && this.ticketCalledNumbers.indexOf(num) < 0) {
-        this.ticketCalledNumbers.push(num);
+      if (num !== 0) {
+        const index = this.ticketCalledNumbers.indexOf(num, 0);
+        if (index < 0) {
+          this.ticketCalledNumbers.push(num);
+        } else {
+          this.ticketCalledNumbers.splice(index, 1);
+        }
       }
     }
 
