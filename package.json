@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-prod": "ng build --prod --base-href https://ravinaarishi.github.io/housie/",
+    "push-prod": "angular-cli-ghpages -d dist/housie-app/ --no-silent"
   },
   "private": true,
   "dependencies": {
