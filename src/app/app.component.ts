@@ -1,7 +1,9 @@
+import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HOUSIE_TEXT } from './housie-text';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +30,7 @@ export class AppComponent implements OnInit {
   @ViewChild('housieBoardOuterDiv') housieBoardDivElement: ElementRef;
   @ViewChild('housieBoard') housieBoardElement: ElementRef;
 
-    constructor(private snackBar: MatSnackBar) {
+    constructor(private snackBar: MatSnackBar, private matDialog: MatDialog) {
       this.tambola = require('tambola-generator');
       this.ticketInput = new FormControl('');
     }
@@ -37,12 +39,14 @@ export class AppComponent implements OnInit {
     }
 
     public genrateTickets() {
-      this.showHousieBoard = false;
-      this.ticketCalledNumbers = [];
-      const num = +this.ticketInput.value;
-      this.generatedTickets = this.tambola.getTickets(num);
-      this.showTickets = true;
-      setTimeout(() => this.ticketDivElement.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+      if (!!this.ticketInput.value.trim()) {
+        this.showHousieBoard = false;
+        this.ticketCalledNumbers = [];
+        const num = +this.ticketInput.value;
+        this.generatedTickets = this.tambola.getTickets(num);
+        this.showTickets = true;
+        setTimeout(() => this.ticketDivElement.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+      }
     }
 
     public openHousieBoard() {
@@ -88,5 +92,11 @@ export class AppComponent implements OnInit {
       this.ticketCalledNumbers = [];
       this.generatedNumbers = null;
       this.ticketInput = new FormControl('');
+    }
+
+    openHelpDialog() {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.maxWidth = '50%';
+      this.matDialog.open(HelpDialogComponent, dialogConfig);
     }
 }

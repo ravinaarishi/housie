@@ -1,4 +1,4 @@
-<div>
+<div class="mb5">
   <!-- <h1 class="title">Let's play Bingo!</h1> -->
   <div class="title-div">
     <img src="assets/img/bingo-text-4.png">
@@ -17,6 +17,9 @@
     </div>
     <div id="inner-reset-div" class="ma3">
       <button mat-raised-button color="primary" (click)="reset()">RESET!</button>
+    </div>
+    <div id="help-button-div" class="ma3">
+      <span (click)="openHelpDialog()" class="material-icons help-icon">help_outline</span>
     </div>
   </div>
   <div #ticketsDiv *ngIf="showTickets">
